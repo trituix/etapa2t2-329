@@ -4,10 +4,7 @@ default:
 	javac -d . *.java
 
 run:
-	@read -p "Ingrese delta: " DELTA; \
-	read -p "Ingrese tiempo a simular: " TOTAL; \
-	read -p "Ingrese tiempo de muestreo: " SAMPLING; \
-	java PhysicsLab $$DELTA $$TOTAL $$SAMPLING
+	java PhysicsLab
 
 clean:
 	$(RM) *.class
