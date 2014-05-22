@@ -37,7 +37,16 @@ class PhysicsLab_GUI extends JFrame {
       JMenuItem menuItem = new JMenuItem("Ball");
       menuItem.addActionListener(menu_l);
       subMenu.add(menuItem);
- /*....*/      
+      menuItem = new JMenuItem("Fixed Hook");
+      menuItem.addActionListener(menu_l);
+      subMenu.add(menuItem);
+      menuItem = new JMenuItem("Spring");
+      menuItem.addActionListener(menu_l);
+      subMenu.add(menuItem);
+      menuItem = new JMenuItem("My scenario");
+      menuItem.addActionListener(menu_l);
+      subMenu.add(menuItem);
+
       menu = new JMenu("MyWorld");
       mb.add(menu);
       menuItem = new JMenuItem("Start");
@@ -46,7 +55,14 @@ class PhysicsLab_GUI extends JFrame {
       menuItem = new JMenuItem("Stop");
       menuItem.addActionListener(menu_l);
       menu.add(menuItem);
-/* ...*/
-      return mb;          
+      subMenu = new JMenu("Simulator");
+      menuItem = new JMenuItem("Refresh time");
+      menuItem.addActionListener(menu_l);
+      subMenu.add(menuItem);
+      menuItem = new JMenuItem("Delta time");
+      menuItem.addActionListener(menu_l);
+      subMenu.add(menuItem);
+      menu.add(subMenu);
+      return mb;
    }   
 }
