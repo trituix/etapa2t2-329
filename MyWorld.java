@@ -42,12 +42,14 @@ public class MyWorld implements ActionListener {
    }
    public void start() {
       if(passingTime.isRunning()) return;
-      passingTime.start();      
+      passingTime.start();    
    }
    public void stop(){
+      if(!passingTime.isRunning()) return;
+      passingTime.stop();
    }
    
-   public void actionPerformed (ActionEvent event) {  // like simulate method of Assignment 1, 
+   public void actionPerformed (ActionEvent event) {
       double nextStop=t+refreshPeriod;                // the arguments are attributes here.
       for (; t<nextStop; t+=delta_t){
          for (PhysicsElement e: elements)
@@ -61,7 +63,7 @@ public class MyWorld implements ActionListener {
                s.updateState();            // update its state
             }
       }
- 
+      this.repaintView();
    }
    
    public void repaintView(){
