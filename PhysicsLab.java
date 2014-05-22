@@ -59,6 +59,9 @@ class PhysicsLab_GUI extends JFrame {
       menuItem = new JMenuItem("Refresh time");
       menuItem.addActionListener(menu_l);
       subMenu.add(menuItem);
+      menuItem = new JMenuItem("View Refresh time");
+      menuItem.addActionListener(menu_l);
+      subMenu.add(menuItem);
       menuItem = new JMenuItem("Delta time");
       menuItem.addActionListener(menu_l);
       subMenu.add(menuItem);

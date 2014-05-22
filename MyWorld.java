@@ -40,6 +40,11 @@ public class MyWorld implements ActionListener {
       refreshPeriod = rp;
       passingTime.setDelay((int)(refreshPeriod*1000)); // convert from [s] to [ms]
    }
+
+   public double getRefreshPeriod() {
+      return this.refreshPeriod;
+   }
+
    public void start() {
       if(passingTime.isRunning()) return;
       passingTime.start();    
@@ -87,5 +92,10 @@ public class MyWorld implements ActionListener {
       for (PhysicsElement e: elements)
             if (e.contains(x,y)) return e;
       return null;
-   }  
+   }
+
+   public void clean() {
+      elements.clear();
+      view.repaintView();
+   }
 } 
