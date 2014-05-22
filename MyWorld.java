@@ -40,14 +40,21 @@ public class MyWorld implements ActionListener {
       refreshPeriod = rp;
       passingTime.setDelay((int)(refreshPeriod*1000)); // convert from [s] to [ms]
    }
+
+   public double getRefreshPeriod() {
+      return this.refreshPeriod;
+   }
+
    public void start() {
       if(passingTime.isRunning()) return;
-      passingTime.start();      
+      passingTime.start();    
    }
    public void stop(){
+      if(!passingTime.isRunning()) return;
+      passingTime.stop();
    }
    
-   public void actionPerformed (ActionEvent event) {  // like simulate method of Assignment 1, 
+   public void actionPerformed (ActionEvent event) {
       double nextStop=t+refreshPeriod;                // the arguments are attributes here.
       for (; t<nextStop; t+=delta_t){
          for (PhysicsElement e: elements)
@@ -61,7 +68,7 @@ public class MyWorld implements ActionListener {
                s.updateState();            // update its state
             }
       }
- 
+      this.repaintView();
    }
    
    public void repaintView(){
@@ -85,5 +92,10 @@ public class MyWorld implements ActionListener {
       for (PhysicsElement e: elements)
             if (e.contains(x,y)) return e;
       return null;
-   }  
+   }
+
+   public void clean() {
+      elements.clear();
+      view.repaintView();
+   }
 } 
